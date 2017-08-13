@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:display="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>视频截帧保存</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <style type="text/css">
+        .but {
+            background-color: #cccccc;
+        }
+        .img-rounded{
+            height: 105px;
+            width: 105px;
+        }
+    </style>
+    <script src="./js/myjs.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1 class="center-block" style="width:150px">视频截帧</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6 center-block" style="background-color: #cccccc">
+            <video id="testmp4" width="560" height="360" autoplay loop>
+                <source src="test.mp4" type="video/mp4">
+            </video>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="输入每秒截取帧数(默认5FPS)" id="fpsInput">
+                        <span class="input-group-addon">FPS</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-default" id="btn_start">开始截取</button>
+                    <button class="btn btn-default" id="btn_stop">停止截取</button>
+                    <button class="btn btn-default" id="test_btn">手动截取</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="background-color:#cccccc;height: 399px;padding-top: 20px">
+            <div id="simgshow" class="pre-scrollable center-block" style="width: 560px;">
+                <!--此处自动生成图像-->
+            </div>
+        </div>
+    </div>
+    <div class="row hidden">
+        <canvas id="testcanvas" width="500" height="360" >
+            you cant see me~
+        </canvas>
+    </div>
+</div>
+</body>
+</html>
