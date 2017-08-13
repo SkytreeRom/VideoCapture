@@ -22,6 +22,7 @@
         }
     </style>
     <script src="./js/myjs.js" type="text/javascript"></script>
+
 </head>
 <body>
 <div class="container">
@@ -30,10 +31,9 @@
     </div>
     <div class="panel panel-default" style="background-color: #8c8c8c">
         <div class="panel-body">
-
             <div class="row">
                 <div class="col-md-6 center-block">
-                    <video id="testmp4" width="560" height="360" autoplay loop>
+                    <video id="testmp4" width="560" height="360" autoplay loop controls>
                         <source src="test.mp4" type="video/mp4">
                     </video>
                     <div class="row">
@@ -64,10 +64,27 @@
             </div>
         </div>
     </div>
-    测试环境：Google Chrome 60.0.3112.90 Apache 2.4.26(Win32) PHP 7.1.7<br/>
-    <code>git clone https://github.com/SkytreeRom/VideoCapture</code>
-
-
+    <div class="row">
+        测试环境：Google Chrome 60.0.3112.90 Apache 2.4.26(Win32) PHP 7.1.7<br/>
+        <code>git clone https://github.com/SkytreeRom/VideoCapture</code>
+    </div>
+    <script>
+        function screenShot() {
+            ctx.drawImage(v, 0, 0, c.width, c.height);
+            image = c.toDataURL("image/jpeg");
+            var text = $("<img></img>").attr({
+                "src": image,
+                "class": "img-rounded",
+                "alt": "截屏"
+            });
+            $("#simgshow").prepend(text);
+            $.post("server.php", {
+                id:"video1",
+                img: image,
+                time: v.currentTime
+            });
+        }
+    </script>
 </div>
 </body>
 </html>

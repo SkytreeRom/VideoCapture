@@ -1,16 +1,10 @@
 <?php  
-$img =$_POST['img'];  
-
+$img =$_POST['img'];
+$id =$_POST['id'];
+$time=$_POST['time'];
+$integer=floor($time);
+$floor=$time-$integer;
 list($type, $data) = explode(',', $img);  
-  
-
-$photo ="./tmp/video1/".time().rand(1,100).'.jpg';
-  
-
-file_put_contents($photo, base64_decode($data), true);  
-  
-
-//header('content-type:application/json;charset=utf-8');  
-//$ret = array('img'=>$photo);  
-//echo json_encode($ret);  
+$photo ="./tmp/video1/".$id.'_'.$integer.'_'.$floor.'.jpg';
+file_put_contents($photo, base64_decode($data), true);
 ?>  
